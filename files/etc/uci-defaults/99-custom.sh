@@ -105,8 +105,8 @@ elif [ "$count" -gt 1 ]; then
         uci set network.lan.ipaddr=$CUSTOM_IP
         echo "custom router ip is $CUSTOM_IP" >> $LOGFILE
     else
-        uci set network.lan.ipaddr='192.168.100.1'
-        echo "default router ip is 192.168.100.1" >> $LOGFILE
+        uci set network.lan.ipaddr='192.168.6.1'
+        echo "default router ip is 192.168.6.1" >> $LOGFILE
     fi
 
     # PPPoE设置
@@ -114,8 +114,8 @@ elif [ "$count" -gt 1 ]; then
     if [ "$enable_pppoe" = "yes" ]; then
         echo "PPPoE enabled, configuring..." >>$LOGFILE
         uci set network.wan.proto='pppoe'
-        uci set network.wan.username="$pppoe_account"
-        uci set network.wan.password="$pppoe_password"
+        uci set network.wan.username="637633399414"
+        uci set network.wan.password="888888"
         uci set network.wan.peerdns='1'
         uci set network.wan.auto='1'
         uci set network.wan6.proto='none'
@@ -185,7 +185,7 @@ uci commit
 
 # 设置编译作者信息
 FILE_PATH="/etc/openwrt_release"
-NEW_DESCRIPTION="Packaged by wukongdaily"
+NEW_DESCRIPTION="凯哥"
 sed -i "s/DISTRIB_DESCRIPTION='[^']*'/DISTRIB_DESCRIPTION='$NEW_DESCRIPTION'/" "$FILE_PATH"
 
 # 若luci-app-advancedplus (进阶设置)已安装 则去除zsh的调用 防止命令行报 /usb/bin/zsh: not found的提示
